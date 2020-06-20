@@ -4,10 +4,10 @@
 \alias{vld_term}
 \title{Validate Term}
 \usage{
-vld_term(x, validate = "class")
+vld_term(x, validate = "complete")
 }
 \arguments{
-\item{x}{The object to check.}
+\item{x}{The object.}
 
 \item{validate}{A string specifying the level of the validation.
 The possible values in order of increasing strictness
@@ -18,13 +18,29 @@ A flag indicating whether the condition was met.
 }
 \description{
 Validates the elements of a term vector.
+Use \code{\link[=chk_s3_class]{chk_s3_class()}} to check if an object is a term.
 }
 \details{
+Internal validity of a term can be checked on three levels:
+\itemize{
+\item \code{"valid"} checks that all terms are of the form
+\code{x}, \verb{x[#]}, \verb{x[#,#]} etc. where \code{x} is an identifier
+and \verb{#} are positive integers.
+\item \code{"consistent"} checks that all terms are addressed
+with the same dimensionality; the terms \code{x[1]} and \code{x[2,3]}
+are inconsistent.
+\item \code{"complete"} checks that the values span all possible values
+across all dimensions; if \code{x[3,4]} exist, the vector must
+contain at least 11 more terms to be consistent
+(\code{x[1,1]} to \code{x[1,4]}, \code{x[2,1]} to \code{x[2,4]} and
+\code{x[3,1]} to \code{x[3,3]}).
+}
+
 Missing values are ignored as are duplicates and order.
 }
 \examples{
 vld_term(c("x[2]", "x[1]"))
-vld_term(as.term(c("x[2]", "x[1]")))
+vld_term(term("x[2]", "x[1]"))
 }
 \seealso{
 \code{\link[=chk_term]{chk_term()}}

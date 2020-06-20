@@ -7,20 +7,20 @@
 #' It is useful for extracting the values of individual terms.
 #'
 #' @inheritParams params
-#' @return A named list of the index for each term.
-#' @seealso [term-vector()]
+#' @return A named list of integer vectors of the index for each term.
+#' @family dimensions
 #' @export
 #'
 #' @examples
-#' tindex(as.term(c("alpha", "alpha[2]", "beta[1,1]", "beta[2 ,1  ]")))
-tindex <- function(x, ...) UseMethod("tindex")
+#' tindex(term("alpha", "alpha[2]", "beta[1,1]", "beta[2 ,1  ]"))
+tindex <- function(x) {
+  if (!is_term(x)) {
+    lifecycle::deprecate_soft(
+      "0.2.0", "term::tindex(x = 'must be a term object')"
+    )
+    x <- as.term(x)
+  }
 
-# internal use only
-tindex.character <- function(x, ...) tindex(as.term(x))
-
-#' @describeIn tindex Term indices for term vector
-#' @export
-tindex.term <- function(x, ...) {
   names <- x
   x <- sub(p0("^", .par_name_pattern), "", x)
   x <- sub("^$", "1", x)

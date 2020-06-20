@@ -10,16 +10,23 @@
 
 \item{...}{Unused.}
 
+\item{validate}{A string specifying the level of the validation.
+The possible values in order of increasing strictness
+are 'class', 'valid', 'consistent' and 'complete'.}
+
 \item{repair}{A flag specifying whether to repair terms.}
 
 \item{select}{A character vector of the names of the parameters to include in the subsetted object.}
 
 \item{value}{A character vector of the new parameter names.}
 
-\item{pars}{A character vector of the new parameter names.}
+\item{pars}{A character vector of parameter names.}
+
+\item{scalar}{A flag specifying whether to by default return all parameters (NULL), or only scalar parameters (TRUE) or only non-scalar parameters (FALSE).}
 
 \item{incomparables}{Ignored.}
 }
 \description{
 Parameter Descriptions for term Functions
 }
+\keyword{internal}

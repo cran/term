@@ -4,10 +4,10 @@
 \alias{chk_term}
 \title{Check Term}
 \usage{
-chk_term(x, validate = "class", x_name = NULL)
+chk_term(x, validate = "complete", x_name = NULL)
 }
 \arguments{
-\item{x}{The object to check.}
+\item{x}{The object.}
 
 \item{validate}{A string specifying the level of the validation.
 The possible values in order of increasing strictness
@@ -20,10 +20,10 @@ are 'class', 'valid', 'consistent' and 'complete'.}
 if the condition is not met.
 }
 \description{
-Checks if term using \verb{[vld_term](x)}.
+Checks if term using \code{\link[=vld_term]{vld_term()}}.
 }
 \examples{
-x <- as.term(c("x[2]", "x[1]"))
+x <- term("x[2]", "x[1]")
 chk_term(x)
 x <- c("x[2]", "x[1]")
 try(chk_term(x, validate = "sorted"))

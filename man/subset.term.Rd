@@ -4,10 +4,12 @@
 \alias{subset.term}
 \title{Subset Term Vector}
 \usage{
-\method{subset}{term}(x, select = NULL, ...)
+\method{subset}{term}(x, pars = NULL, select = NULL, ...)
 }
 \arguments{
 \item{x}{The object.}
+
+\item{pars}{A character vector of parameter names.}
 
 \item{select}{A character vector of the names of the parameters to include in the subsetted object.}
 
@@ -19,11 +21,15 @@ The modified term vector.
 \description{
 Subsets a term vector.
 }
+\details{
+The \code{select} argument has been \ifelse{html}{\figure{lifecycle-soft-deprecated.svg}{options: alt='Soft-deprecated lifecycle'}}{\strong{Soft-deprecated}}
+for \code{pars}.
+}
 \examples{
-term <- as.term(c(
+term <- term(
   "alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]",
   "beta[1,2]", "beta[2,2]", "sigma"
-))
+)
 subset(term, "beta")
 subset(term, c("alpha", "sigma"))
 }
