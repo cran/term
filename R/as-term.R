@@ -17,45 +17,62 @@ as_term <- function(x, ...) UseMethod("as_term")
 #' @rdname as_term
 #' @export
 as.term <- function(x, ...) {
-  term <- UseMethod("as.term")
+  out <- UseMethod("as.term")
   deprecate_soft("0.2.0", "as.term()", "as_term()")
-  term
+  out
 }
 
 #' @export
 as.term.default <- function(x, ..., from_as_term = FALSE) {
   if(vld_false(from_as_term)) return(as_term(x, ...))
-  stop("no applicable method")
+  vec_cast(x, new_term())
 }
 
 #' @export
 as_term.default <- function(x, ...) {
-  as.term(x, ..., from_as_term = TRUE)
+  tryCatch(
+    vec_cast(x, new_term()),
+    error = function(e_cast) {
+      tryCatch(
+        as.term(x, ..., from_as_term = TRUE),
+        error = function(e) {
+          rlang::cnd_signal(e_cast)
+        }
+      )
+    }
+  )
 }
 
 #' @describeIn as_term Coerce character vector to term vector
 #' @export
-as_term.character <- function(x, repair = FALSE, ...) {
-  chk_unused(...)
+as_term.character <- function(x, repair = FALSE, normalize = repair, ...) {
   chk_flag(repair)
+  chk_unused(...)
 
   if (repair) {
     x <- repair_terms_impl(x)
+  }
+  if(normalize) {
+    x <- normalize_terms_impl(x)
   }
 
   new_term(x)
 }
 
-#' @describeIn as_term Coerce default object to term vector
+#' @describeIn as_term Coerce numeric object to term vector
 #' @export
 as_term.numeric <- function(x, name = "par", ...) {
   chk_string(name)
   chk_unused(...)
+
   term(!!name := dims(x))
 }
 
 #' @export
-as_term.term <- function(x, ...) {
+as_term.term <- function(x, ...)  x
+
+#' @export
+as_term.term_rcrd <- function(x, ...) {
   chk_unused(...)
-  x
+  vec_cast(x, new_term())
 }

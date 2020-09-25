@@ -4,6 +4,8 @@ universals::pars
 #' @inherit universals::pars
 #' @inheritParams params
 #' @export
+#' @examples
+#' pars(matrix(1:4, nrow = 2))
 pars.default <- function(x, scalar = NULL, ...) {
   chk_unused(...)
   x <- as_term(x)
@@ -26,8 +28,6 @@ pars.character <- function(x, scalar = NULL, ...) {
 #' @inherit universals::pars
 #'
 #' @inheritParams params
-#' @param terms A flag specifying whether to return the parameter name
-#' for each term element.
 #' @family parameters
 #' @export
 #'
@@ -40,22 +40,41 @@ pars.character <- function(x, scalar = NULL, ...) {
 #' pars(term, scalar = TRUE)
 #' pars(term, scalar = FALSE)
 pars.term <- function(x, scalar = NULL, terms = FALSE, ...) {
+  if(!missing(terms)) {
+    deprecate_warn("0.2.1", "term::pars(terms =)")
+  }
+  if(isTRUE(terms))
+    return(pars_terms(x))
+
+  pars(as_term_rcrd(x), scalar = scalar, ...)
+}
+
+#' Parameter Names
+#'
+#' @inherit universals::pars
+#'
+#' @inheritParams params
+#' @family parameters
+#' @export
+#'
+#' @examples
+#' term <- term(
+#'   "alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]",
+#'   "beta[1,2]", "beta[2,2]", "sigma", NA
+#' )
+#' pars(term)
+#' pars(term, scalar = TRUE)
+#' pars(term, scalar = FALSE)
+pars.term_rcrd <- function(x, scalar = NULL, ...) {
   # FIXME hack for nlist v0.1.0 and v0.1.1
   if(identical(scalar, NA)) scalar <- NULL
   if(!is.null(scalar)) chk_flag(scalar)
-  chk_flag(terms)
   chk_unused(...)
 
-  if(terms) {
-    deprecate_soft("0.2.0", "term::pars(terms =)", details = "If `terms = TRUE` use `pars_terms() otherwise replace `pars(terms = FALSE)` with `pars()`.")
-  }
-
-  x <- as.character(x)
   if(!is.null(scalar)) {
-    bol <- grepl("\\[", x)
-    x <- x[is.na(x) | if(scalar) !bol else bol]
+    bol <- scalar_term(x)
+    x <- x[is.na(bol) | if(scalar) bol else !bol]
   }
-  x <- sub(p0("^(", .par_name_pattern, ")(.*)"), "\\1", x)
-  if (!terms) x <- unique(x)
-  x
+  unique(field(x, "par"))
 }
+

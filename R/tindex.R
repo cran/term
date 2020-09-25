@@ -1,6 +1,6 @@
 #' Term Index
 #'
-#' Gets the index for each term of an object.
+#' Gets the index for each term of an term or term_rcrd object.
 #'
 #' For example the index of `beta[2,1]` is `c(2L, 1L)`
 #' while the index for `sigma` is `1L`.
@@ -14,21 +14,13 @@
 #' @examples
 #' tindex(term("alpha", "alpha[2]", "beta[1,1]", "beta[2 ,1  ]"))
 tindex <- function(x) {
-  if (!is_term(x)) {
+  if (!is_term(x) && !is_term_rcrd(x)) {
     lifecycle::deprecate_soft(
-      "0.2.0", "term::tindex(x = 'must be a term object')"
+      "0.2.1", "term::tindex(x = 'must be a term or term_rcrd object')"
     )
-    x <- as.term(x)
+    x <- as_term(x)
   }
-
-  names <- x
-  x <- sub(p0("^", .par_name_pattern), "", x)
-  x <- sub("^$", "1", x)
-  x <- gsub("\\[|\\]", "", x)
-  x <- strsplit(x, ",")
-  x <- lapply(x, as.integer)
-  x[is.na(x)] <- 1L
-  x[is.na(names)] <- NA_integer_
-  names(x) <- names
-  x
+  tindex <- field(as_term_rcrd(x), "dim")
+  names(tindex) <- as.character(as_term(x))
+  tindex
 }

@@ -18,7 +18,7 @@ A named list of integer vectors of the dimensions of each parameter.
 Gets the dimensions of each parameter of an object.
 }
 \details{
-Errors if the parameter dimensions are inconsistent.
+Errors if the parameter dimensions are invalid or inconsistent.
 
 A named list of the dimensions of each parameter can be converted
 into the equivalent \code{\link[=term-vector]{term-vector()}} using \code{\link[=term]{term()}}.

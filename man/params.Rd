@@ -16,6 +16,8 @@ are 'class', 'valid', 'consistent' and 'complete'.}
 
 \item{repair}{A flag specifying whether to repair terms.}
 
+\item{normalize}{A flag specifying whether to normalize terms.}
+
 \item{select}{A character vector of the names of the parameters to include in the subsetted object.}
 
 \item{value}{A character vector of the new parameter names.}
@@ -23,6 +25,9 @@ are 'class', 'valid', 'consistent' and 'complete'.}
 \item{pars}{A character vector of parameter names.}
 
 \item{scalar}{A flag specifying whether to by default return all parameters (NULL), or only scalar parameters (TRUE) or only non-scalar parameters (FALSE).}
+
+\item{terms}{A flag specifying whether to return the parameter name
+for each term element.}
 
 \item{incomparables}{Ignored.}
 }

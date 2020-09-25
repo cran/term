@@ -1,6 +1,6 @@
 Package: term
 Title: Create, Manipulate and Query Parameter Terms
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: 
     c(person(given = "Joe",
              family = "Thorley",
@@ -23,21 +23,24 @@ Description: Creates, manipulates, queries and repairs vectors
     coefficient tables and the column names in 'mcmc' and 'mcmc.list'
     objects.
 License: MIT + file LICENSE
-URL: https://github.com/poissonconsulting/term
+URL: https://poissonconsulting.github.io/term/,
+        https://github.com/poissonconsulting/term
 BugReports: https://github.com/poissonconsulting/term/issues
 Depends: R (>= 3.4)
-Imports: chk, extras (>= 0.0.1), lifecycle, rlang, universals, vctrs
+Imports: chk, extras, lifecycle, rlang, purrr, universals, vctrs (>=
+        0.3.0)
 Suggests: covr, testthat
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-RoxygenNote: 7.1.0.9000
+RoxygenNote: 7.1.1
+RdMacros: lifecycle
 NeedsCompilation: no
-Packaged: 2020-06-19 17:23:35 UTC; joe
+Packaged: 2020-09-25 16:22:07 UTC; joe
 Author: Joe Thorley [aut, cre] (<https://orcid.org/0000-0002-7683-4592>),
   Kirill Müller [aut] (<https://orcid.org/0000-0002-1416-3412>),
   Ayla Pearson [ctb] (<https://orcid.org/0000-0001-7388-1222>),
   Poisson Consulting [cph, fnd]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
 Repository: CRAN
-Date/Publication: 2020-06-20 09:20:09 UTC
+Date/Publication: 2020-09-25 16:40:02 UTC

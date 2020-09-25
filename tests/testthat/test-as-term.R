@@ -55,7 +55,6 @@ test_that("as_term.character", {
   expect_error(as_term("a", "b"), "^`repair` must be a flag [(]TRUE or FALSE[)][.]$", class = "chk_error")
   x <- c("parm3[10]", "parm3[2]", "parm[2,2]", "parm[1,1]", "parm[2,1]", "parm[1,2]", "parm[10]", "parm3")
 
-
   expect_identical(
     as_term(c("a", "a[", NA, "a[1]")),
     new_term(c("a", "a[", NA, "a[1]"))
@@ -93,7 +92,13 @@ test_that("as_term.character", {
 })
 
 test_that("as_term others", {
-  expect_error(as_term(factor(1)), "no applicable method")
-  expect_error(as_term(data.frame(x = 1)), "no applicable method")
-  expect_error(as_term(TRUE), "no applicable method")
+  expect_identical(as_term(new_term_rcrd()), new_term())
+})
+
+test_that("as_term others", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
+  expect_error(as_term(factor(1)), class = "vctrs_error")
+  expect_error(as_term(data.frame(x = 1)), class = "vctrs_error")
+  expect_error(as_term(TRUE), class = "vctrs_error")
 })

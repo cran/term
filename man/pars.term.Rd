@@ -33,6 +33,7 @@ pars(term, scalar = FALSE)
 }
 \seealso{
 Other parameters: 
+\code{\link{pars.term_rcrd}()},
 \code{\link{pars_terms}()}
 }
 \concept{parameters}

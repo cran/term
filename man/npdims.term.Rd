@@ -14,28 +14,17 @@
 \item{...}{Other arguments passed to methods.}
 }
 \value{
-An integer scalar of the number of parameters.
+A named integer vector of the number of dimensions of each parameter.
 }
 \description{
-Gets the number of parameters of an object.
-
-The default methods returns the length of \code{\link[universals:pars]{pars()}} if none are
-\code{NA}, otherwise it returns \code{NA}.
+The terms argument is  \lifecycle{defunct}
 }
 \examples{
 npdims(term("alpha[1]", "alpha[3]", "beta[1,1]", "beta[2,1]"))
 }
 \seealso{
-\code{\link[universals:pars]{pars()}}
-
-Other MCMC dimensions: 
-\code{\link[universals]{nchains}()},
-\code{\link[universals]{niters}()},
-\code{\link[universals]{nsams}()},
-\code{\link[universals]{nsims}()},
-\code{\link[universals]{nterms}()}
-
-Other parameters: 
-\code{\link[universals]{pars}()},
-\code{\link[universals]{set_pars}()}
+Other dimensions: 
+\code{\link[universals]{dims}()},
+\code{\link[universals]{ndims}()},
+\code{\link[universals]{pdims}()}
 }

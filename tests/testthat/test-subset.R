@@ -31,18 +31,47 @@ test_that("subset.term", {
   )
 })
 
+test_that("subset.term_rcrd", {
+  term_rcrd <- as_term_rcrd(new_term(c("alpha[1]", "alpha[2]", "sigma")))
+  expect_identical(subset(term_rcrd, character(0)), new_term_rcrd())
+  expect_error(subset(term_rcrd, "beta"),
+               "^`pars` must match 'alpha' or 'sigma', not 'beta'[.]$",
+               class = "chk_error"
+  )
+  term_rcrd <- as_term_rcrd(new_term(c(
+    "alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]",
+    "beta[1,2]", "beta[2,2]", "sigma"
+  )))
+  expect_identical(subset(term_rcrd), term_rcrd)
+  expect_identical(subset(term_rcrd, "sigma"), as_term_rcrd(new_term("sigma")))
+  expect_identical(
+    subset(term_rcrd, c("beta", "sigma")),
+    as_term_rcrd(new_term(c(
+      "beta[1,1]", "beta[2,1]",
+      "beta[1,2]", "beta[2,2]", "sigma"
+    )))
+  )
+  expect_identical(
+    subset(term_rcrd, c("sigma", "beta")),
+    as_term_rcrd(new_term(c(
+      "beta[1,1]", "beta[2,1]",
+      "beta[1,2]", "beta[2,2]", "sigma"
+    )))
+  )
+  expect_error(subset(term_rcrd, "tt"),
+               "^`pars` must match 'alpha', 'beta' or 'sigma', not 'tt'[.]$",
+               class = "chk_error"
+  )
+})
+
 test_that("subset.term deprecated", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
   term <- new_term(c("alpha[1]", "alpha[2]", "sigma"))
 
-  rlang::with_options(lifecycle_verbosity = "error", {
-    expect_error(subset(term, select = NULL), class = "defunctError")
-  })
+  lifecycle::expect_deprecated(subset(term, select = NULL))
+  lifecycle::expect_defunct(subset(term, select = "alpha", pars = "alpha"))
 
-    suppressWarnings(expect_error(subset(term, select = "alpha", pars = "alpha"), class = "defunctError"))
-
-  rlang::with_options(lifecycle_verbosity = "quiet", {
   expect_identical(subset(term, select = character(0)), new_term())
-  })
 })
 
 

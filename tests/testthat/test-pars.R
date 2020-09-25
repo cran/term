@@ -1,4 +1,8 @@
-test_that("pars", {
+test_that("pars.default", {
+  expect_identical(pars(matrix(1:4, nrow = 2)), "par")
+})
+
+test_that("pars.character", {
   expect_identical(pars(new_term(character(0))), character(0))
   expect_identical(pars(new_term("a")), "a")
   expect_identical(pars(new_term(NA_character_)), NA_character_)
@@ -15,36 +19,26 @@ test_that("pars.term", {
 })
 
 test_that("pars.term deprecated terms", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
   terms <- new_term(c(
     "alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]",
     "beta[1,2]", "beta[2,2]", "sigma"
   ))
 
-  rlang::with_options(lifecycle_verbosity = "error", {
-    expect_error(pars(terms, scalar = TRUE, terms = TRUE), class = "defunctError")
-  })
-
-  rlang::with_options(lifecycle_verbosity = "quiet", {
-    expect_identical(pars(terms, scalar = TRUE, terms = TRUE), "sigma")
-  })
-
-  rlang::with_options(lifecycle_verbosity = "quiet", {
-    expect_identical(
-      pars(terms, terms = TRUE),
-      c("alpha", "alpha", "beta", "beta", "beta", "beta", "sigma")
-    )
-  })
+  lifecycle::expect_deprecated(pars(terms, terms = TRUE))
+  lifecycle::expect_deprecated(pars(terms, terms = FALSE))
 })
 
 test_that("pars.term", {
   expect_identical(pars(new_term("b")), "b")
   expect_identical(pars(new_term("b"), scalar = TRUE), "b")
   expect_identical(pars(new_term("b[1]")), "b")
-  expect_identical(pars(new_term("b[1]"), scalar = TRUE), character(0))
+  expect_identical(pars(new_term("b[1]"), scalar = TRUE), "b")
   expect_identical(pars(new_term(c("b", "b[1]"))), "b")
   expect_identical(pars(new_term(c("b", "b[1]")), scalar = TRUE), "b")
   expect_identical(pars(new_term(c("b", "b[1]", "b[2]"))), "b")
-  expect_identical(pars(new_term(c("b", "b[1]", "b[2]")), scalar = TRUE), "b")
+  expect_identical(pars(new_term(c("b", "b[1]", "b[2]")), scalar = TRUE), character(0))
   expect_identical(pars(new_term(c("b[1]", "b[2]"))), "b")
   expect_identical(pars(new_term(c("b[1]", "b[2]")), scalar = TRUE), character(0))
 })
@@ -73,11 +67,11 @@ test_that("pars.term missing values", {
   )
   expect_identical(
     pars(new_term(c("a[1]", NA_character_, "a")), scalar = TRUE),
-    c(NA_character_, "a")
+    c("a", NA_character_)
   )
   expect_identical(
     pars(new_term(c("a[2]", NA_character_, "a")), scalar = TRUE),
-    c(NA_character_, "a")
+    NA_character_
   )
   expect_identical(
     pars(new_term(c("b[2]", NA_character_, "a")), scalar = TRUE),
@@ -135,10 +129,10 @@ test_that("pars.term scalar = FALSE", {
 
 test_that("pars.term scalar = TRUE", {
   expect_identical(pars(new_term("b"), scalar = TRUE), "b")
-  expect_identical(pars(new_term("b[1]"), scalar = TRUE), character(0))
+  expect_identical(pars(new_term("b[1]"), scalar = TRUE), "b")
   expect_identical(pars(new_term(c("b", "b[1]")), scalar = TRUE), "b")
   expect_identical(pars(new_term(c("b", "b[1]", "b[2]"))), "b")
-  expect_identical(pars(new_term(c("b", "b[1]", "b[2]")), scalar = TRUE), "b")
+  expect_identical(pars(new_term(c("b", "b[1]", "b[2]")), scalar = TRUE), character(0))
   expect_identical(pars(new_term(c("b[1]", "b[2]")), scalar = TRUE), character(0))
 })
 
@@ -153,14 +147,23 @@ test_that("pars.term scalar missing values", {
 
   expect_identical(
     pars(new_term(c("a[1]", NA_character_, "a")), scalar = TRUE),
-    c(NA_character_, "a")
+    c("a", NA_character_)
   )
   expect_identical(
     pars(new_term(c("a[2]", NA_character_, "a")), scalar = TRUE),
-    c(NA_character_, "a")
+    NA_character_
   )
   expect_identical(
     pars(new_term(c("b[2]", NA_character_, "a")), scalar = TRUE),
     c(NA_character_, "a")
   )
 })
+
+test_that("pars.term_rcrd", {
+  expect_identical(pars(as_term_rcrd(as_term(c("a[1]", "b[2]")))),
+                   c("a", "b"))
+  expect_identical(pars(as_term_rcrd(as_term(c("b[1]", "a[2]")))),
+                   c("b", "a"))
+})
+
+

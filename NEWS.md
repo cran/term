@@ -1,3 +1,32 @@
+# term 0.3.0
+
+## Breaking changes
+
+- Stop deprecated `terms` argument to `npdims.term()`.
+- Warn deprecated `terms` argument to `pars.terms()`.
+- `nterms()` now returns total number of terms not just number of unique non-missing terms.
+- `is_inconsistent_term()` now returns TRUE if includes missing or invalid terms.
+
+## Features
+
+### Major
+
+- Added `term_rcrd` class to store vector as underlying data frame and implemented some functions.
+
+### Minor 
+
+- Added
+  - `unique()`.
+  - `summary()`.
+  - `anyDuplicated()`.
+  - `scalar_term()` to test whether each element in a term vector is scalar.
+  - `normalize_terms()`.
+  - `normalize` argument to `as_term.character()`.
+
+## Bug Fixes
+
+- Fix `as.term()` so issues deprecation warning.
+
 # term 0.2.0
 
 ## Breaking changes

@@ -2,7 +2,7 @@
 #'
 #' Gets the name of each parameter for each term.
 #'
-#' The scalar argument has been `r lifecycle::badge("soft-deprecated")`.
+#' The scalar argument is  \lifecycle{defunct}
 #'
 #' @inheritParams params
 #' @param x A term vector.
@@ -17,21 +17,15 @@
 #' )
 #' pars_terms(term)
 pars_terms <- function(x, scalar = NULL, ...) {
-  chk_s3_class(x, "term")
-  # FIXME hack for nlist v0.1.0 and v0.1.1
-#  if(identical(scalar, NA)) scalar <- NULL
-  if(!is.null(scalar)) chk_flag(scalar)
+  chkor(is_term(x), is_term_rcrd(x))
+  if(!missing(scalar)) {
+    deprecate_soft("0.2.1", "term::pars_terms(scalar =)")
+  }
   chk_unused(...)
+  x <- as_term_rcrd(x)
 
   if(!is.null(scalar)) {
-    deprecate_soft("0.2.0", "term::pars_terms(scalar =)",
-                   details = "More specifically the scalar argument has been soft-deprecated.")
+    x <- x[scalar_term(x) == scalar]
   }
-
-  scalar_term <- scalar_term(x)
-  x <- as.character(x)
-  x <- sub(p0("^(", .par_name_pattern, ")(.*)"), "\\1", x)
-  if(vld_true(scalar)) x <- x[scalar_term]
-  if(vld_false(scalar)) x <- x[!scalar_term]
-  x
+  field(x, "par")
 }

@@ -8,12 +8,14 @@
 #' The possible values in order of increasing strictness
 #' are 'class', 'valid', 'consistent' and 'complete'.
 #' @param repair A flag specifying whether to repair terms.
-#'
+#' @param normalize A flag specifying whether to normalize terms.
 #' @param select A character vector of the names of the parameters to include in the subsetted object.
 #'
 #' @param value A character vector of the new parameter names.
 #' @param pars A character vector of parameter names.
 #' @param scalar A flag specifying whether to by default return all parameters (NULL), or only scalar parameters (TRUE) or only non-scalar parameters (FALSE).
+#' @param terms A flag specifying whether to return the parameter name
+#' for each term element.
 #' @param incomparables Ignored.
 #'
 #' @name params
