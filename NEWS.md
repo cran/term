@@ -1,3 +1,7 @@
+# term 0.3.1
+
+- Updated internals for lifecycle 1.0.0.
+
 # term 0.3.0
 
 ## Breaking changes

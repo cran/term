@@ -1,7 +1,7 @@
-ae0974fde9668c43a18fdc4a3cddc093 *DESCRIPTION
+da62f67ca5c834f631703ef0d0cdde3c *DESCRIPTION
 ea57de7e09093be93ce7e63f5fff8105 *LICENSE
 7e9bfa9b2bccec121b45b2b4b9f34bfd *NAMESPACE
-eadca6d8a5fba49c95e0627279fb2dda *NEWS.md
+f83902d0e1869533722339b16eb7180d *NEWS.md
 f60aab4027509add8587f373a5cb26d2 *R/anyNA.R
 f00a484b53f29da52f46683aec03efe4 *R/anyduplicated.R
 81c9e17b7f6c565b42e512bb5848fee4 *R/as-character.R
@@ -11,7 +11,7 @@ a38cf44ef78e0d5c4d44a49c69f95f53 *R/as-term.R
 e479e2b8b0ee7347b090cdde811ca0c1 *R/chk.R
 ea0605ecd3bebfa53f01ab080513faa5 *R/complete-terms.R
 a805f3a14363abbe7967f510194c7b27 *R/consistent-term.R
-ffcfa44f396fc99fe77ee9c0eb5ece43 *R/deprecated.R
+16b549aa2b57572c0cf67494d6191757 *R/deprecated.R
 7bef30988f53689ee8c2a680ed214200 *R/dims.R
 6e36b79670578a43ef26f0825130fbe1 *R/extras.R
 d12e60e8390765c4192aecc92351c235 *R/format.R
@@ -51,9 +51,9 @@ c6feb4417551588b13c6357d5c4b09f2 *R/unique.R
 90eed86b9acfaf43d168fcdbcbe5bf5e *R/vec-proxy-compare.R
 5a99de51d09086a8ebfe02096d0439fe *R/vec-ptype2.R
 992d01c4705d991dc19a28e88c03419f *R/vld.R
-8d152b3c1c458df6ade2f04325ae5958 *README.md
-a2be181cd8571565b57f5811ef56cd95 *build/term.pdf
-4575cc7e6e5fe1ba746990c1de6be7a4 *inst/WORDLIST
+96e81c6bc9cbe1ef9e0dea569edde318 *README.md
+426bf11813f5e6e73e1035decfe3c102 *build/term.pdf
+18398032b83d2f2e6476a2e1046a5619 *inst/WORDLIST
 5f183a1fb59336be2b87147ae0159d0b *man/NA_term_.Rd
 0c2fcdf36047a9fa4fe5dd8a01f5ff54 *man/NA_term_rcrd_.Rd
 6d7407de2f42bd9855987a91cefa4e4f *man/as_term.Rd
