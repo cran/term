@@ -1,3 +1,9 @@
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# term 0.3.2
+
+- Internally replaced `chk::chkor()` with `chk::chkor_vld()`.
+
 # term 0.3.1
 
 - Updated internals for lifecycle 1.0.0.

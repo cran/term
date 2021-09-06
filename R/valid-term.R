@@ -1,4 +1,4 @@
-#' Valid Terms
+#' Test Valid Terms
 #'
 #' Test whether each element in a term or term_rcrd object is valid.
 #'
@@ -7,6 +7,7 @@
 #' @inheritParams params
 #' @return A logical vector indicating whether each term is valid.
 #' @seealso [term-vector()] and [repair_terms()]
+#' @family valid
 #' @export
 #'
 #' @examples
@@ -15,6 +16,8 @@
 #' # invalid term elements
 #' valid_term(new_term(c("a b", "a[1]b", "a[0]", "b[1,]", "c[]", "d[1][2]")))
 valid_term <- function(x) {
-  chkor(chk_s3_class(x, "term"), chk_s3_class(x, "term_rcrd"))
+  if(!vld_s3_class(x, "term") && !vld_s3_class(x, "term_rcrd")) {
+    chkor_vld(vld_s3_class(x, "term"), vld_s3_class(x, "term_rcrd"))
+  }
   valid_term_impl(as_term(x))
 }
