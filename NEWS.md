@@ -1,12 +1,19 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# term 0.3.3
+
+- Switched order of equality and condition expectations in internal tests.
+
+
 # term 0.3.2
 
 - Internally replaced `chk::chkor()` with `chk::chkor_vld()`.
 
+
 # term 0.3.1
 
 - Updated internals for lifecycle 1.0.0.
+
 
 # term 0.3.0
 
@@ -36,6 +43,7 @@
 ## Bug Fixes
 
 - Fix `as.term()` so issues deprecation warning.
+
 
 # term 0.2.0
 
@@ -68,9 +76,11 @@
 - `ndims()` and `dims()` imported from universals and reexported.
 - New implementation for `repair_terms()`.
 
+
 # term 0.1.0
 
 - Added `chk_term()` and `vld_term()`.
+
 
 # term 0.0.1
 

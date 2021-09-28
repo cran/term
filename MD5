@@ -1,7 +1,7 @@
-73a7ef8d469f1497a00dce3dc4efeb03 *DESCRIPTION
+0fe09a9bb81d77adfa875c70a1bfec6f *DESCRIPTION
 ea57de7e09093be93ce7e63f5fff8105 *LICENSE
 7e9bfa9b2bccec121b45b2b4b9f34bfd *NAMESPACE
-3cef93be57d9f27b76007bfcb7029f2d *NEWS.md
+6b0a17d268fc095d56369751a1f43b21 *NEWS.md
 f60aab4027509add8587f373a5cb26d2 *R/anyNA.R
 f00a484b53f29da52f46683aec03efe4 *R/anyduplicated.R
 81c9e17b7f6c565b42e512bb5848fee4 *R/as-character.R
@@ -51,8 +51,8 @@ d5614a8ff103fbc721d61be06619734a *R/valid-term.R
 90eed86b9acfaf43d168fcdbcbe5bf5e *R/vec-proxy-compare.R
 5a99de51d09086a8ebfe02096d0439fe *R/vec-ptype2.R
 2efc97d3aab17c48d173f2f3d07d2656 *R/vld.R
-96e81c6bc9cbe1ef9e0dea569edde318 *README.md
-f157ed95ed070d5bd622b6904e39b9bc *build/term.pdf
+68f14098c5d59b706506bff347fb78e1 *README.md
+811b4ea896adcc7296084fbad93557e4 *build/term.pdf
 18398032b83d2f2e6476a2e1046a5619 *inst/WORDLIST
 5f183a1fb59336be2b87147ae0159d0b *man/NA_term_.Rd
 0c2fcdf36047a9fa4fe5dd8a01f5ff54 *man/NA_term_rcrd_.Rd
@@ -74,6 +74,7 @@ c3978703d8f40f2679795335715e98f4 *man/figures/lifecycle-experimental.svg
 6902bbfaf963fbc4ed98b86bda80caa2 *man/figures/lifecycle-soft-deprecated.svg
 53b3f893324260b737b3c46ed2a0e643 *man/figures/lifecycle-stable.svg
 1c1fe7a759b86dc6dbcbe7797ab8246c *man/figures/lifecycle-superseded.svg
+9fe649dc02fed445e880cea45dabdb02 *man/figures/logo.png
 bdc745b1c7dbeb50a0c9bf83a39f49e3 *man/is_incomplete_terms.Rd
 435b28a6e53d9817dfec27b92abbbda6 *man/is_inconsistent_terms.Rd
 afc5ab9f0f24d7ff547aaaeb1229fd72 *man/is_term.Rd
@@ -126,7 +127,7 @@ e32582ada2663b438da129f4bd37e5ee *tests/testthat/test-is-incomplete-terms.R
 5d3f59c0526a5d9c1aef1efa76ed7b2e *tests/testthat/test-na.R
 89b975a438b0fc7f9ff0ebf622e6be3f *tests/testthat/test-new-term-rcrd.R
 c2ad3c9b2401ca699e269b4d49065533 *tests/testthat/test-normalize-terms.R
-3a99f0a3986c415d18599f6872f34a58 *tests/testthat/test-npars.R
+3683968dadf703db24bcf0fb7e06f8ed *tests/testthat/test-npars.R
 6b4ec1b5a51e996fe8a0c87617a43904 *tests/testthat/test-npdims.R
 d2842aee8aa05eb8aba166657cf4e169 *tests/testthat/test-nterms.R
 12fef4b40ee34c8415bbf133028fc333 *tests/testthat/test-pars-terms.R
