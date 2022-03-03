@@ -1,22 +1,17 @@
 Package: term
 Title: Create, Manipulate and Query Parameter Terms
-Version: 0.3.3
-Authors@R: 
-    c(person(given = "Joe",
-             family = "Thorley",
-             role = c("aut", "cre"),
-             email = "joe@poissonconsulting.ca",
-             comment = c(ORCID = "0000-0002-7683-4592")),
-      person(given = "Kirill",
-             family = "Müller",
-             role = "aut",
-             comment = c(ORCID = "0000-0002-1416-3412")),
-      person(given = "Ayla",
-             family = "Pearson",
-             role = "ctb",
-             comment = c(ORCID = "0000-0001-7388-1222")),
-      person(given = "Poisson Consulting",
-             role = c("cph", "fnd")))
+Version: 0.3.4
+Authors@R: c(
+    person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7683-4592")),
+    person("Kirill", "Müller", role = "aut",
+           comment = c(ORCID = "0000-0002-1416-3412")),
+    person("Ayla", "Pearson", role = "ctb",
+           comment = c(ORCID = "0000-0001-7388-1222")),
+    person("Evan", "Amies-Galonski", , "evan@poissonconsulting.ca", role = "ctb",
+           comment = c(ORCID = "0000-0003-1096-2089")),
+    person("Poisson Consulting", role = c("cph", "fnd"))
+  )
 Description: Creates, manipulates, queries and repairs vectors of
     parameter terms.  Parameter terms are the labels used to reference
     values in vectors, matrices and arrays. They represent the names in
@@ -36,11 +31,12 @@ Encoding: UTF-8
 Language: en-US
 RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2021-09-27 19:36:59 UTC; joe
+Packaged: 2022-03-03 14:31:28 UTC; joe
 Author: Joe Thorley [aut, cre] (<https://orcid.org/0000-0002-7683-4592>),
   Kirill Müller [aut] (<https://orcid.org/0000-0002-1416-3412>),
   Ayla Pearson [ctb] (<https://orcid.org/0000-0001-7388-1222>),
+  Evan Amies-Galonski [ctb] (<https://orcid.org/0000-0003-1096-2089>),
   Poisson Consulting [cph, fnd]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
 Repository: CRAN
-Date/Publication: 2021-09-28 07:40:02 UTC
+Date/Publication: 2022-03-03 15:50:02 UTC
