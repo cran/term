@@ -1,5 +1,17 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# term 0.3.5
+
+- Requires R (>= 3.5)
+
+- Moved following from soft to warn deprecated
+ - `is.term()`
+ - `is.incomplete_terms()`
+ - `is.inconsistent_terms()`
+ - `parameters()`
+ - `parameters<-()`
+ - `set_parameters()`
+ - `tdims()`
 
 # term 0.3.4
 
