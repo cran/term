@@ -11,7 +11,7 @@ pars_terms(x, scalar = NULL, ...)
 
 \item{scalar}{A flag specifying whether to by default return all parameters (NULL), or only scalar parameters (TRUE) or only non-scalar parameters (FALSE).}
 
-\item{...}{Unused.}
+\item{...}{These dots are for future extensions and must be empty.}
 }
 \value{
 A character vector of the term parameter names.
@@ -33,7 +33,7 @@ pars_terms(term)
 Other parameters: 
 \code{\link{pars.character}()},
 \code{\link{pars.default}()},
-\code{\link{pars.term_rcrd}()},
-\code{\link{pars.term}()}
+\code{\link{pars.term}()},
+\code{\link{pars.term_rcrd}()}
 }
 \concept{parameters}

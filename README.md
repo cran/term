@@ -9,12 +9,12 @@
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/poissonconsulting/term/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/term/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/poissonconsulting/term/branch/master/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/term?branch=master)
+coverage](https://codecov.io/gh/poissonconsulting/term/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/term)
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/term)](https://cran.r-project.org/package=term)
-![CRAN downloads](http://cranlogs.r-pkg.org/badges/term)
+![CRAN downloads](https://cranlogs.r-pkg.org/badges/term)
 <!-- badges: end -->
 
 `term` is an R package to create, manipulate, query and repair vectors
@@ -23,22 +23,6 @@ values in vectors, matrices and arrays. They represent the names in
 coefficient tables and the column names in `mcmc` and `mcmc.list`
 objects.
 
-## Installation
-
-To install the latest release from [CRAN](https://cran.r-project.org)
-
-``` r
-install.packages("term")
-```
-
-To install the developmental version from
-[GitHub](https://github.com/poissonconsulting/term)
-
-``` r
-# install.packages("remotes")
-remotes::install_github("poissonconsulting/term")
-```
-
 ## Demonstration
 
 ### Term Vectors
@@ -46,7 +30,7 @@ remotes::install_github("poissonconsulting/term")
 ``` r
 library(term)
 
-# term vectors are the labels used to reference values in 
+# term vectors are the labels used to reference values in
 # vectors, matrices and arrays
 term <- term(
   "alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]",
@@ -95,7 +79,7 @@ coef
 
 ``` r
 # the term vectors are readily sorted
-coef[rev(order(coef$term)),]
+coef[rev(order(coef$term)), ]
 #> # A tibble: 4 × 2
 #>   term    estimate
 #>   <term>     <dbl>
@@ -208,7 +192,7 @@ term
 
 # the `term()` constructor rejects invalid terms
 term("b[4]", "b   [2]", "b", "b[1", "b[2, 2]", "b", "a [ 1 ] ", NA)
-#> Error in `term_impl()` at ]8;line = 50:col = 4;file:///Users/joe/Code/poissonconsulting/term/term/R/term.Rterm/R/term.R:50:4]8;;:
+#> Error in `term_impl()`:
 #> ! All elements of term vector `string_args_term` must be valid.
 
 # missing values can easily removed
@@ -240,6 +224,36 @@ term <- sort(complete_terms(term))
 term
 #> <term[5]>
 #> [1] a    b[1] b[2] b[3] b[4]
+```
+
+## Installation
+
+### Release
+
+To install the release version from
+[CRAN](https://CRAN.R-project.org/package=term).
+
+``` r
+install.packages("term")
+```
+
+The website for the release version is at
+<https://poissonconsulting.github.io/term/>.
+
+### Development
+
+To install the development version from
+[r-universe](https://poissonconsulting.r-universe.dev/term).
+
+``` r
+install.packages("term", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+or from [GitHub](https://github.com/poissonconsulting/term)
+
+``` r
+# install.packages("remotes")
+remotes::install_github("poissonconsulting/term")
 ```
 
 ## Contribution

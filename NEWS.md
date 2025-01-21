@@ -1,9 +1,14 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+
+# term 0.3.6
+
+- Require R (\>= 4.0).
+- Fixed `chk_s3_class()` reference in documentation that was causing CRAN NOTE.
+
 
 # term 0.3.5
 
-- Requires R (>= 3.5)
-
+- Require R (>= 3.5).
 - Moved following from soft to warn deprecated
  - `is.term()`
  - `is.incomplete_terms()`
