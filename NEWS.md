@@ -1,5 +1,17 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# term 0.3.7
+
+- Fix overly zealous check that now fails on R-devel (#91, #92).
+- R (\>= 4.1).
+- Removed defunct `terms` argument from `npdims()`.
+- Moved following from soft to warn deprecated.
+  - `as.term()`
+  - `term::pars_terms(scalar =)`
+  - `term::subset(select =)`
+  - `term::term(x =)`
+
+
 # term 0.3.6
 
 - Require R (\>= 4.0).

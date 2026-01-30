@@ -1,6 +1,6 @@
 Package: term
 Title: Create, Manipulate and Query Parameter Terms
-Version: 0.3.6
+Version: 0.3.7
 Authors@R: c(
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7683-4592")),
@@ -8,7 +8,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-1416-3412")),
     person("Ayla", "Pearson", role = "ctb",
            comment = c(ORCID = "0000-0001-7388-1222")),
-    person("Evan", "Amies-Galonski", , "evan@poissonconsulting.ca", role = "ctb",
+    person("Evan", "Amies-Galonski", role = "ctb",
            comment = c(ORCID = "0000-0003-1096-2089")),
     person("Poisson Consulting", role = c("cph", "fnd"))
   )
@@ -21,7 +21,7 @@ License: MIT + file LICENSE
 URL: https://poissonconsulting.github.io/term/,
         https://github.com/poissonconsulting/term
 BugReports: https://github.com/poissonconsulting/term/issues
-Depends: R (>= 4.0)
+Depends: R (>= 4.1)
 Imports: chk, extras, lifecycle, purrr, rlang, universals, vctrs
 Suggests: covr, testthat (>= 3.0.0)
 RdMacros: lifecycle
@@ -29,14 +29,15 @@ Config/Needs/website: poissonconsulting/poissontemplate
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
-RoxygenNote: 7.3.2.9000
+RoxygenNote: 7.3.3.9000
 NeedsCompilation: no
-Packaged: 2025-01-21 17:12:14 UTC; joe
-Author: Joe Thorley [aut, cre] (<https://orcid.org/0000-0002-7683-4592>),
-  Kirill Müller [aut] (<https://orcid.org/0000-0002-1416-3412>),
-  Ayla Pearson [ctb] (<https://orcid.org/0000-0001-7388-1222>),
-  Evan Amies-Galonski [ctb] (<https://orcid.org/0000-0003-1096-2089>),
+Packaged: 2026-01-29 23:01:37 UTC; joe
+Author: Joe Thorley [aut, cre] (ORCID: <https://orcid.org/0000-0002-7683-4592>),
+  Kirill Müller [aut] (ORCID: <https://orcid.org/0000-0002-1416-3412>),
+  Ayla Pearson [ctb] (ORCID: <https://orcid.org/0000-0001-7388-1222>),
+  Evan Amies-Galonski [ctb] (ORCID:
+    <https://orcid.org/0000-0003-1096-2089>),
   Poisson Consulting [cph, fnd]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
 Repository: CRAN
-Date/Publication: 2025-01-21 17:40:02 UTC
+Date/Publication: 2026-01-30 06:10:02 UTC
