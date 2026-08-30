@@ -1,4 +1,48 @@
-<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# term 0.4.0
+
+## Breaking changes
+
+* The following functions, deprecated since 0.1.0, are now defunct and error
+  when called (#103).
+
+  * `is.term()`, replaced by `is_term()`.
+  * `is.incomplete_terms()`, replaced by `is_incomplete_terms()`.
+  * `is.inconsistent_terms()`, replaced by `is_inconsistent_terms()`.
+  * `parameters()` and `` `parameters<-`() ``, replaced by `pars()` and
+    `` `pars<-`() ``.
+  * `set_parameters()`, replaced by `set_pars()`.
+  * `tdims()`, replaced by `tindex()`.
+
+* The `terms` argument of `pars()`, deprecated since 0.2.0, is now defunct
+  (#106). Use `pars_terms(as_term(x))` in place of `pars(x, terms = TRUE)` and
+  `pars(x)` in place of `pars(x, terms = FALSE)`.
+
+## New features
+
+* `set_pars()` and `summary()` gain `term_rcrd` methods (#90).
+
+## Bug fixes
+
+* `format()` now escapes backticks embedded in term names so that printed terms
+  are unambiguous (#90).
+
+## Minor improvements
+
+* vctrs (>= 0.4.0) is now the declared minimum, as `levels()` is implemented for
+  vctrs vectors and the `levels.term()` and `levels.term_rcrd()` workarounds are
+  no longer required (#90).
+
+* The purrr dependency is dropped (#103).
+
+* The `pars(scalar = NA)` compatibility hack for nlist 0.1.0 and 0.1.1 is
+  removed (#90).
+
+* `as_list()` is imported from extras instead of being copied locally (#90).
+
+* The `complete_terms()` examples for `term_rcrd` objects now run (#90).
+
 
 # term 0.3.7
 

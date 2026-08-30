@@ -31,10 +31,10 @@ pars(term, scalar = FALSE)
 \seealso{
 \link[universals:pars]{universals::pars}
 
-Other parameters: 
-\code{\link{pars.character}()},
-\code{\link{pars.default}()},
-\code{\link{pars.term}()},
-\code{\link{pars_terms}()}
+Other parameters:
+\code{\link[=pars.character]{pars.character()}},
+\code{\link[=pars.default]{pars.default()}},
+\code{\link[=pars.term]{pars.term()}},
+\code{\link[=pars_terms]{pars_terms()}}
 }
 \concept{parameters}

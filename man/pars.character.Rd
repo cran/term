@@ -25,10 +25,10 @@ pars(c("a", "b[1]", "a[3]"))
 \seealso{
 \link[universals:pars]{universals::pars}
 
-Other parameters: 
-\code{\link{pars.default}()},
-\code{\link{pars.term}()},
-\code{\link{pars.term_rcrd}()},
-\code{\link{pars_terms}()}
+Other parameters:
+\code{\link[=pars.default]{pars.default()}},
+\code{\link[=pars.term]{pars.term()}},
+\code{\link[=pars.term_rcrd]{pars.term_rcrd()}},
+\code{\link[=pars_terms]{pars_terms()}}
 }
 \concept{parameters}

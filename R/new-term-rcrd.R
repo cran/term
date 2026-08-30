@@ -14,10 +14,12 @@
 #' ))
 #' }
 #' @export
-new_term_rcrd <- function(x = data.frame(par = character(), dim = I(list()), stringsAsFactors = FALSE)) {
+new_term_rcrd <- function(
+  x = data.frame(par = character(), dim = I(list()), stringsAsFactors = FALSE)
+) {
   chk_data(x)
   check_names(x, c("par", "dim"))
-  x$dim <- as_list_unnamed_default(x$dim)
+  x$dim <- as_list(x$dim)
   vctrs::new_rcrd(fields = x[c("par", "dim")], class = "term_rcrd")
 }
 

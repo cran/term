@@ -1,3 +1,7 @@
+par_pattern <- function() {
+  "[[:alpha:]][[:alnum:]._]*"
+}
+
 max_index <- function(x) {
   x <- tindex(x)
   x <- matrix(unlist(x), ncol = length(x[[1]]), byrow = TRUE)
@@ -33,8 +37,12 @@ valid_term_impl <- function(x) {
     return(logical(0))
   }
   pattern <- p0(
-    "^\\s*", par_pattern(), "\\s*(\\[\\s*",
-    .index_pattern, "(\\s*,\\s*", .index_pattern,
+    "^\\s*",
+    par_pattern(),
+    "\\s*(\\[\\s*",
+    .index_pattern,
+    "(\\s*,\\s*",
+    .index_pattern,
     ")*\\s*\\]){0,1}\\s*$"
   )
   valid <- grepl(pattern, x)
@@ -46,8 +54,12 @@ pars_terms_impl <- function(x, scalar = NULL) {
   scalar_term <- scalar_term_impl(x)
   x <- as.character(x)
   x <- sub(p0("^(", par_pattern(), ")(.*)"), "\\1", x)
-  if (vld_true(scalar)) x <- x[scalar_term]
-  if (vld_false(scalar)) x <- x[!scalar_term]
+  if (vld_true(scalar)) {
+    x <- x[scalar_term]
+  }
+  if (vld_false(scalar)) {
+    x <- x[!scalar_term]
+  }
   x
 }
 
@@ -67,7 +79,8 @@ term_impl <- function(args) {
 
   args[numbers] <- mapply(
     term_from_pdims,
-    number_args, names2(number_args),
+    number_args,
+    names2(number_args),
     SIMPLIFY = FALSE
   )
 

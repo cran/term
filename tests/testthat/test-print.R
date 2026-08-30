@@ -1,25 +1,37 @@
-test_that("print", {
-  verify_output("out/print-term.txt", {
+test_that("print term", {
+  expect_snapshot({
     term()
 
     term(alpha = 2, beta = c(2, 2), "sigma")
 
     term(
-      "alpha[1]", "sigma", "alpha[2]", "beta[1,1]", "beta[2,1]",
-      "beta[1,2]", "beta[2,2]"
+      "alpha[1]",
+      "sigma",
+      "alpha[2]",
+      "beta[1,1]",
+      "beta[2,1]",
+      "beta[1,2]",
+      "beta[2,2]"
     )
 
     new_term(c("with space", ""))
 
-    term("r[")
-
     term("r  [ 1  ,2  ]")
   })
 
+  expect_snapshot(error = TRUE, term("r["))
+})
 
-  verify_output("out/print-term-rcrd.txt", {
+test_that("print term_rcrd", {
+  expect_snapshot({
     new_term_rcrd()
 
     as_term_rcrd(term(alpha = 2, beta = c(2, 2), "sigma"))
   })
+})
+
+test_that("format ticks empty, spaced and backticked terms", {
+  expect_identical(format(new_term("with space")), "`with space`")
+  expect_identical(format(new_term("")), "``")
+  expect_identical(format(new_term("a`b")), "`a\\`b`")
 })

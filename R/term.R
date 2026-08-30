@@ -36,13 +36,15 @@ term <- function(...) {
   compat_args <- exec(term_compat_args, !!!args)
   if (is.numeric(compat_args$x) && all(compat_args$x != 0)) {
     lifecycle::deprecate_warn(
-      "0.3.7", "term::term(x =)",
+      "0.3.7",
+      "term::term(x =)",
       details = "Use named arguments to pass integer dimensions."
     )
     term <- term_impl(list2(!!compat_args$name := compat_args$x))
   } else if (is.list(compat_args$x)) {
     lifecycle::deprecate_warn(
-      "0.3.7", "term::term(x =)",
+      "0.3.7",
+      "term::term(x =)",
       details = "Use named arguments directly, or splice a list as in `term(!!!x)`."
     )
     term <- term_impl(compat_args$x)
@@ -60,8 +62,8 @@ term_compat_args <- function(`_x` = x, name = "par", ..., x = NULL) {
 }
 
 term_from_pdims <- function(x, name) {
+  # zero-length dims yield no terms, consistent with any zero dimension
   if (is_empty(x)) {
-    # FIXME: Return new_term(name) instead?
     return(new_term())
   }
   if (any(x == 0)) {

@@ -1,6 +1,6 @@
 Package: term
 Title: Create, Manipulate and Query Parameter Terms
-Version: 0.3.7
+Version: 0.4.0
 Authors@R: c(
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7683-4592")),
@@ -22,16 +22,16 @@ URL: https://poissonconsulting.github.io/term/,
         https://github.com/poissonconsulting/term
 BugReports: https://github.com/poissonconsulting/term/issues
 Depends: R (>= 4.1)
-Imports: chk, extras, lifecycle, purrr, rlang, universals, vctrs
+Imports: chk, extras, lifecycle, rlang, universals, vctrs (>= 0.4.0)
 Suggests: covr, testthat (>= 3.0.0)
 RdMacros: lifecycle
 Config/Needs/website: poissonconsulting/poissontemplate
+Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
-RoxygenNote: 7.3.3.9000
 NeedsCompilation: no
-Packaged: 2026-01-29 23:01:37 UTC; joe
+Packaged: 2026-08-30 12:23:16 UTC; joe
 Author: Joe Thorley [aut, cre] (ORCID: <https://orcid.org/0000-0002-7683-4592>),
   Kirill Müller [aut] (ORCID: <https://orcid.org/0000-0002-1416-3412>),
   Ayla Pearson [ctb] (ORCID: <https://orcid.org/0000-0001-7388-1222>),
@@ -40,4 +40,4 @@ Author: Joe Thorley [aut, cre] (ORCID: <https://orcid.org/0000-0002-7683-4592>),
   Poisson Consulting [cph, fnd]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
 Repository: CRAN
-Date/Publication: 2026-01-30 06:10:02 UTC
+Date/Publication: 2026-08-30 12:50:02 UTC
